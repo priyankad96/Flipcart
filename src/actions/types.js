@@ -1,0 +1,13 @@
+export const USER_LOGIN='USER_LOGIN';
+export const SIGN_UP='SIGN_UP';
+export const INVALID_USER='INVALID_USER';
+export const LOGOUT='LOGOUT';
+export const TAB1_PRODUCT='TAB1_PRODUCT';
+export const TAB2_PRODUCT='TAB2_PRODUCT';
+export const ADD_PRODUCT='ADD_PRODUCT';
+export const DELETE_PRODUCT='DELETE_PRODUCT';
+export const UPDATE_PRODUCT='UPDATE_PRODUCT';
+export const GET_BY_ID='GET_BY_ID';
+export const FETCH_PRODUCT='FETCH_PRODUCT';
+export const ADD_TO_CART_PRODUCT='ADD_TO_CART_PRODUCT';
+

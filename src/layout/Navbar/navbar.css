@@ -1,0 +1,16 @@
+.NavBar {
+    background-color: white;
+    height: 40px;
+    text-align: center;
+    border-bottom: 2px solid #CACCCE;
+    padding-left: 80px;
+    padding-right: 80px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
+}
+
+.ItemHeading {
+    font-size: 14px;
+    font-weight: bold;
+    color:#595959;
+}

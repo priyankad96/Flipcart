@@ -1,0 +1,120 @@
+.Flipcart {
+    background-color: #f1f3f6;
+    height:280px;
+    overflow: hidden;
+    margin:7px;
+}
+
+.Items{
+    background-color: #f1f3f6;
+    /*//height: 100vh;*/
+    width: auto;
+}
+
+.Slide{
+    background-color: #61dafb;
+    height:280px;
+    overflow: hidden;
+    width:auto;
+    resize: both;
+}
+
+.Images {
+    height:280px;
+    overflow: hidden;
+    width:auto;
+    resize: both;
+}
+
+.Deals {
+    background-color: #f1f3f6;
+    margin:7px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    height: 362px;
+}
+
+.BigDeal {
+    background-color: white;
+    width:1159px;
+    height: auto;
+    margin-right:10px;
+    border-top: 1px solid #eaeaea;
+    border-radius: 2px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+
+}
+
+.BTop{
+    height:63px;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+
+.SmallDeal {
+    background-color: white;
+    width:248px;
+    height:362px;
+    padding:5px;
+    display: block;
+    box-sizing:border-box;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+    overflow: hidden;
+}
+
+.Offers {
+    width:195px;
+    height:287px;
+    background-color: white;
+    padding:25px 15px;
+}
+.DealImage{
+    width:99px;
+    height: 150px;
+    margin: 0px 25.5px;
+    overflow:hidden;
+}
+
+.DealImage:hover{
+    width:102px;
+    height: 155px;
+    margin-top: 1px;
+    margin-bottom: -6.3px;
+    cursor: pointer;
+}
+
+.DealName{
+    width:165px;
+    height:19px;
+    color:#212121;
+    margin: 15px 0px 0px;
+    font-size: 14px;
+    font-family: Roboto,Arial;
+    font-weight:600;
+    text-align: center;
+    font-size: 14px;
+
+
+}
+
+.DealPrice{
+    width: 165px;
+    height: 27px;
+    color: #388E3C;
+    font-family: Roboto,Arial;
+    padding: 8px 0px 0px;
+    text-align: center;
+
+}
+
+.DealDes{
+    text-align: center;
+    height:26px;
+    font-family: Roboto,Arial;
+    padding: 7px 0px 0px;
+    text-align: center;
+}

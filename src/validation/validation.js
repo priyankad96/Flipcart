@@ -1,0 +1,1 @@
+export const isEmail=/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;

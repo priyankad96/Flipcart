@@ -1,0 +1,65 @@
+.LoginMain {
+    width: auto;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Login {
+    height: 300px;
+    width:500px;
+    /*height:55%;*/
+    /*width: 40%;*/
+    background-color:#001529;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    /*flex-flow: column;*/
+}
+
+.input {
+    margin-top: 20px;
+    width:100%;
+    height:auto;
+    border-radius: 5px;
+}
+
+.BtnLogin{
+    width: 305px;
+    height: 48px;
+    /*background-color: #fb641b;*/
+    background-color: #2874f0;
+    padding: 10px 20px;
+    margin: auto;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+
+}
+
+.BtnSingUp{
+    width: 305px;
+    height: 48px;
+    background-color: white;
+    padding: 10px 20px;
+    margin: 16px auto ;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #2874f0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+}
+
+.LoginBar{
+    display: flex;
+    background-color: #001529;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin: auto;
+}
