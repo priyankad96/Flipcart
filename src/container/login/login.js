@@ -19,6 +19,10 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        console.log('lo',this.props)
+    }
+
     checkEmail = () => {
         const {email} = this.state;
         if (email === '') {
@@ -67,8 +71,10 @@ class Login extends Component {
                          alert(res.message);
                          if(res.role==='admin'){
                              this.props.history.replace('/product');
+                             window.location.reload();
                          }else{
                              this.props.history.replace('/');
+                             window.location.reload();
                          }
                      }else{
                          alert(res.message);
@@ -79,7 +85,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className={'LoginMain'}>
+            <div className={'LoginMain'} >
                 <div className={'Login'}>
                     <div className={'LoginBar'}>
                         <div className={'LoginBar'}>

@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
-
 import Super from '../HOC/hoc';
 import Header from '../layout/Header/header';
 import Navbar from '../layout/Navbar/navbar';
+import * as logout from "../actions/login/loginActions";
 class Layout extends Component{
     constructor(){
-        super()
+        super();
     }
     render(){
         return(

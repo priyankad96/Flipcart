@@ -39,6 +39,15 @@ class Product extends Component {
         this.props.history.push(`/editproduct/${id}`);
     };
 
+    delete=(id)=>{
+        this.props.deleteProduct(id).then((res)=>{
+            if(res){
+               // alert('Delete Product Successfully..');
+                this.setState({products: this.props.products});
+            }
+        })
+    }
+
     toggleCheckbox = (e) => {
         const {check, selectedIndex, products} = this.state;
         const check1 = check;
@@ -58,7 +67,7 @@ class Product extends Component {
                 if (!num) {
                     selectedIndex.push(product.id);
                 }
-            })
+            });
             this.setState({check: !check1});
             console.log(selectedIndex);
         }
@@ -131,7 +140,7 @@ class Product extends Component {
     handleAddProduct = () => {
         console.log(this.props);
         this.props.history.push('/addproduct');
-    }
+    };
 
     sortByProductPrice = (order) => {
         const {products} = this.props;
@@ -192,10 +201,11 @@ class Product extends Component {
     };
 
     render() {
+        debugger
         const {check, disable, products,search,sProducts,isSearch} = this.state;
         const displayProd = isSearch ? sProducts : products;
         return (
-            <div>
+            <div style={{margin:40}}>
                 <div style={{textAlign: 'center', marginTop: 10}} onClick={this.handleAddProduct}>
                     <button type="button" className="btn btn-dark">ADD PRODUCT</button>
                 </div>
@@ -223,7 +233,7 @@ class Product extends Component {
                         <div>
                             <Input type={'type'} value={search} placeholder={'Search Product Here'} onChange={this.searchProduct}/>
                         </div>&nbsp;  &nbsp;
-                        <div>
+                        <div style={{marginRight:50}}>
                         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                             <DropdownToggle caret>
                                Filter By
@@ -279,7 +289,7 @@ class Product extends Component {
                                             </button>
                                             {' '}
                                             <button type=" button" id={item.id} className=" btn btn-danger"
-                                                    onClick={this.delete}>Delete
+                                                    onClick={()=>{this.delete(item.id)}}>Delete
                                             </button>
                                         </td>
                                     </tr>
@@ -321,8 +331,8 @@ const mapStateToProps = state => {
 };
 
 const mapActionToProps = dispatch => {
-    const {fetchProduct, addTocartProduct} = product;
-    return bindActionCreators({fetchProduct, addTocartProduct}, dispatch);
+    const {fetchProduct, addTocartProduct,deleteProduct} = product;
+    return bindActionCreators({fetchProduct, addTocartProduct,deleteProduct}, dispatch);
     // return {
     //     action: {
     //         fetchProduct: bindActionCreators(product.fetchProduct, dispatch),
