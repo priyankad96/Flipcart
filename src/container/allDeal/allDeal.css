@@ -1,0 +1,63 @@
+.AllDeal{
+    background-color: #f1f3f6;
+    width: auto;
+    height: 100%;
+    padding: 8px;
+}
+
+.Deals{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.Name{
+    height: 125px;
+    width: auto;
+    padding: 32px;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.Product{
+   padding: 15px;
+    width:auto;
+    display: flex;
+    flex-wrap:wrap;
+    margin:5px;
+}
+
+.Block{
+    padding: 25px 15px;
+    height: 344.25px;
+    width: 337px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.FBlock{
+    height:314.25px;
+    width: 200px;
+}
+
+.Img{
+    height: 199px;
+    width: 200px;
+    resize: both;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+
+}
+
+.Img:hover{
+    transform: scale(1.07);
+}
+
+.Text1{
+    width:314.25px;
+    font-size: 14px;
+    font-family: Arial;
+}

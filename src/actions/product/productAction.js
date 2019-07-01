@@ -77,18 +77,22 @@ export const addProduct = (credentials) => {
     }
 };
 
-export const deleteProduct = (credentials) => {
+export const deleteProduct = (id) => {
     // const id=credential.id;
     return (dispatch, getState) => {
         return new Promise((resolve, reject) => {
-            axios.delete('/product/deleteproduct/:id', credentials)
-                .then((res) => {
-                    console.log(res);
-                    dispatch({
-                        type: DELETE_PRODUCT,
-                        payload: res.data
-                    })
-                    return resolve(res);
+            axios.delete(`/product/deleteproduct/${id}`)
+                .then((response) => {
+                    if(response){
+                        axios.get('/product/allproduct').then(res=>{
+                            console.log(res);
+                            dispatch({
+                                type: FETCH_PRODUCT,
+                                payload: res.data
+                            });
+                            return resolve(res.data);
+                        });
+                    }
                 })
                 .catch((err) => {
                     console.log(err);
