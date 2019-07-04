@@ -184,7 +184,9 @@ class Product extends Component {
         products.map((item)=>{
             if(key!=='')
             {
-                if(item.product.includes(key)){
+                const fkey=key.toUpperCase();
+                const product=item.product.toUpperCase();
+                if(product.includes(fkey)){
                     // const el=document.getElementsByName(item.id);
                     // console.log('**',el[0]);
                     // if(el[0])

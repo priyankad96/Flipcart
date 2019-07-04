@@ -7,13 +7,10 @@ import {Layout} from 'antd';
 import I1 from '../../assets/SaleImages/1.jpg';
 import I2 from '../../assets/SaleImages/2.jpg';
 import I3 from '../../assets/SaleImages/3.jpg';
-import II from '../../assets/I1.jpeg';
-import SmallDeal from '../../assets/ref.jpg';
 import * as product from "../../actions/product/productAction";
 import {bindActionCreators} from "redux";
 import {url} from '../../axios-demo';
 
-const {Header} = Layout;
 
 class Items extends Component {
     constructor(props, context) {

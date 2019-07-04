@@ -6,7 +6,13 @@ import './index.css';
 import App from './store/config';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
+import {history} from './helpers/history';
+
+ReactDOM.render(
+    <BrowserRouter history={history}>
+        <App/>
+    </BrowserRouter>,
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

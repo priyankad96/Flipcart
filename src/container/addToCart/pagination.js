@@ -120,7 +120,7 @@ class ViewProduct extends Component {
                                         <th scope=" row">{item.id}</th>
                                         <td>{item.product}</td>
                                         <td>{item.description}</td>
-                                        <td><img src={`${url}/img/${item.image}`} height={60} width={60}/></td>
+                                        <td><img src={`${url}/img/${item.image}`} height={60} width={60} alt={'responsive-img'}/></td>
                                         <td>{item.price}</td>
                                     </tr>
                                 ))
@@ -129,7 +129,7 @@ class ViewProduct extends Component {
                         </table>
                         :
                         <div className=" d-flex justify-content-center">
-                            <div className=" spinner-border text-dark" role=" status">
+                            <div className=" spinner-border text-dark" >
                                 <span className=" sr-only">Loading...</span>
                             </div>
                         </div>

@@ -37,11 +37,6 @@
     flex-direction: column;
 }
 
-.FBlock{
-    height:314.25px;
-    width: 200px;
-}
-
 .Img{
     height: 199px;
     width: 200px;
@@ -54,6 +49,7 @@
 
 .Img:hover{
     transform: scale(1.07);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.18);
 }
 
 .Text1{
