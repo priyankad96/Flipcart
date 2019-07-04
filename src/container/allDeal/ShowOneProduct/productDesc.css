@@ -1,0 +1,93 @@
+.Container {
+     background-color: #f1f3f6;
+     padding: 20px;
+ }
+
+.Main {
+    background-color: white;
+    display: flex;
+    flex-flow: row;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.Fmain {
+    background-color:white;
+    display: flex;
+    flex-flow: column;
+    height: 80vh;
+    width:517px;
+}
+
+.Row{
+    display: flex;
+    flex-flow: row;
+    height: 60vh;
+}
+.FFmain {
+    width: 72px;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.Simg{
+    height: 74px;
+    width:70px;
+    padding: 4px;
+}
+
+.Simg:hover{
+    border:2px solid #2874f0 ;
+}
+
+.SFmain {
+    width: 445px !important;
+    height: 60vh !important;
+    overflow: hidden !important;
+
+}
+
+.Button{
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    width:517px;
+    padding-top: 10px;
+    justify-content: space-between;
+}
+
+.Btn{
+    height: 90%;
+    width:251px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.Smain {
+    width: 830px !important;
+    height: 80vh !important;
+    border-radius: 5px;
+    box-shadow:  0 6px 20px 0 rgba(0, 0, 0, 0.5) !important;
+    margin:10px !important;
+    z-index: 999 !important;
+}
+
+.Scontent {
+    width: 830px;
+    height: 80vh;
+    border-radius: 5px;
+    margin:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
