@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import upload from "../../assets/upload.png";
 import {Col, Input, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import * as product from "../../actions/product/productAction";
 import {bindActionCreators} from "redux";

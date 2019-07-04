@@ -1,4 +1,4 @@
-import {TAB1_PRODUCT,TAB2_PRODUCT,GET_BY_ID,ADD_PRODUCT, FETCH_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT,ADD_TO_CART_PRODUCT} from '../types';
+import {TAB1_PRODUCT,TAB2_PRODUCT,GET_BY_ID,ADD_PRODUCT, FETCH_PRODUCT, UPDATE_PRODUCT, SEARCH_PRODUCT,ADD_TO_CART_PRODUCT} from '../types';
 import axios from '../../axios-demo';
 
 export const fetchProduct = () => {
@@ -10,8 +10,42 @@ export const fetchProduct = () => {
                     dispatch({
                         type: FETCH_PRODUCT,
                         payload: res.data,
-                    })
+                    });
                     return resolve(res.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        })
+    }
+};
+
+export const searchProduct = (key) => {
+    return (dispatch, getState) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/product/allproduct')
+                .then((res) => {
+                    // console.log(res);
+                    const products=res.data;
+                    let tmp=[];
+                    if(key!==''){
+                        products.map((item) => {
+                            const fkey = key.toUpperCase();
+                            const product = item.product.toUpperCase();
+                            if (product.includes(fkey)) {
+                                tmp.push(item);
+                            }
+                        });
+                    }
+                    if(key===''){
+                        tmp=products;
+                    }
+                    console.log(tmp);
+                    dispatch({
+                        type: SEARCH_PRODUCT,
+                        payload: tmp,
+                    });
+                    return resolve(tmp);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -31,7 +65,6 @@ export const addTocartProduct=(selectedProduct)=>{
 };
 
 export const tab1 = (credentials) => {
-    debugger
     console.log('cred',credentials);
     return(dispatch,getstate)=>{
         dispatch({
@@ -42,7 +75,6 @@ export const tab1 = (credentials) => {
 };
 
 export const tab2 = (credentials) => {
-    debugger
     console.log('cred2',credentials);
     return(dispatch,getstate)=>{
         dispatch({

@@ -8,6 +8,7 @@ import Product from './container/admin/product/product';
 import AddToCart from './container/addToCart/addToCart';
 import AddProduct from './container/addToCart/addProductModel';
 import UpdateProduct from './component/updateProduct/updateProduct';
+import ProductDesc from './container/allDeal/ShowOneProduct/productDes';
 import PageNotFound from './pageNotFound/page-not-found';
 import UnauthorisedAccess from './unauthorisedAccess/unauthorisedAccess';
 import CRoute from './customRoute/customRoute';
@@ -20,9 +21,6 @@ import Navbar from "./layout/Navbar/navbar";
 import Super from "./HOC/hoc";
 import AllDeal from './container/allDeal/allDeal';
 class App extends Component {
-    componentDidMount() {
-        console.log('app',this.props)
-    }
     render() {
         const admin = 'admin';
         const user = 'user';
@@ -40,11 +38,13 @@ class App extends Component {
                         {/*<CRoute cprivate crole={[admin,user]} path={'/items'} component={Items}/>*/}
                         {/*<CRoute exact path={'/'} component={PageNotFound}/>*/}
                         {/*<CRoute  cprivate crole={[admin]} path={'/product'}  component={Product}/>*/}
-                        <CRoute path={'/product'} component={Product}/>
+                        <CRoute  path={'/product'} component={Product}/>
                         <CRoute path={'/addtocart'} component={AddToCart}/>
                         <CRoute path={'/addproduct'} component={AddProduct}/>
                         <CRoute path={'/editproduct'} component={UpdateProduct}/>
                         <CRoute path={'/alldeal'} component={AllDeal}/>
+                        <CRoute path={'/searchproduct'} component={AllDeal}/>
+                        <CRoute path={'/productdesc'} component={ProductDesc}/>
                         <CRoute path={'/unauthorised'} component={UnauthorisedAccess}/>
                     </div>
                 </Switch>

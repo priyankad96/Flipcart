@@ -1,4 +1,4 @@
-import {TAB1_PRODUCT,TAB2_PRODUCT,GET_BY_ID,ADD_PRODUCT,DELETE_PRODUCT,UPDATE_PRODUCT,FETCH_PRODUCT,ADD_TO_CART_PRODUCT} from '../../../actions/types';
+import {TAB1_PRODUCT,TAB2_PRODUCT,GET_BY_ID,ADD_PRODUCT,SEARCH_PRODUCT,UPDATE_PRODUCT,FETCH_PRODUCT,ADD_TO_CART_PRODUCT} from '../../../actions/types';
 
 const INITIAL_STATE={
     product:[],
@@ -8,7 +8,6 @@ const INITIAL_STATE={
 };
 
 const reducer=(state=INITIAL_STATE,action)=>{
-    debugger
     switch (action.type){
         case FETCH_PRODUCT:{
             return {
@@ -46,16 +45,16 @@ const reducer=(state=INITIAL_STATE,action)=>{
                 product:action.payload
             }
         }
-        case DELETE_PRODUCT:{
-            return {
-                ...state,
-                product:action.payload
-            }
-        }
         case ADD_TO_CART_PRODUCT:{
             return {
                 ...state,
                 selectedProduct:action.payload
+            }
+        }
+        case SEARCH_PRODUCT:{
+            return {
+                ...state,
+                product:action.payload
             }
         }
         default:

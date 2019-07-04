@@ -15,29 +15,50 @@ class AllDeal extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchProduct().then((res) => {
-            this.setState({product: res});
-        })
+        if(this.props.location.pathname==='/searchproduct'){
+           const {products}=this.props;
+            this.setState({product: products});
+        }else {
+            this.props.fetchProduct().then((res) => {
+                this.setState({product: res});
+            })
+        }
+    };
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        const {products}=this.props;
+        if(products!==nextProps){
+            this.setState({product:nextProps.products});
+        }
     }
+
+    productDesc=(id)=>{
+        this.props.history.push(`/productdesc/${id}`);
+
+    };
 
     render() {
         const {product} = this.state;
         return (
             <div className={'AllDeal'}>
                 <div className={'Deals'}>
-                    <div className={'Name'}>
-                        <div style={{fontSize: 24, fontFamily: 'Arial', color: '#212121', fontWeight: 600}}>
-                            Flipstart Deals of the Day
+                    {
+                        this.props.location.pathname==='/alldeal'&&
+                        <div className={'Name'}>
+                            <div style={{fontSize: 24, fontFamily: 'Arial', color: '#212121', fontWeight: 600}}>
+                                Flipstart Deals of the Day
+                            </div>
+                            <div style={{fontSize: 14, fontFamily: 'Arial', color: '#212121', opacity: 0.5, marginTop: 8}}>
+                                45 Items
+                            </div>
                         </div>
-                        <div style={{fontSize: 14, fontFamily: 'Arial', color: '#212121', opacity: 0.5, marginTop: 8}}>
-                            45 Items
-                        </div>
-                    </div>
+                    }
+
                     <div className={'Product'}>
                         {
                             product ?
                                 ( product.map((item, i) => (
-                                    <div className={'Block'} key={i}>
+                                    <div className={'Block'} key={i}  onClick={()=>this.productDesc(item.id)}>
                                         <div className={'Img'}>
                                             <img src={`${url}/img/${item.image}`} className={'Img'}
                                                  alt={'responsive-img'}/>
@@ -52,7 +73,11 @@ class AllDeal extends Component {
                                             {item.description}
                                         </div>
                                     </div>
-                                )) ): null
+                                )) ): (
+                                    <div>
+                                        <h1>No Record Found</h1>
+                                    </div>
+                                )
                         }
                     </div>
                 </div>
@@ -61,10 +86,16 @@ class AllDeal extends Component {
     }
 }
 
+const mapStateToProps = state=> {
+    return{
+        products:state.product.product,
+    }
+}
+
 const mapActionToProps = dispatch => {
     const {fetchProduct} = product;
     return bindActionCreators({fetchProduct}, dispatch);
 
-}
+};
 
-export default connect(null, mapActionToProps)(AllDeal);
+export default connect(mapStateToProps, mapActionToProps)(AllDeal);

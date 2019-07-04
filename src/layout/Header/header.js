@@ -3,21 +3,37 @@ import Radium, {StyleRoot} from 'radium';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Login from '../../container/login/login';
+import {withRouter} from 'react-router-dom';
 import './header.css';
 import {Row, Col, Input, Avatar, Icon} from 'antd';
 import {Link} from "react-router-dom";
 import * as logout from "../../actions/login/loginActions";
+import * as product from "../../actions/product/productAction";
 
 const Search = Input.Search;
 
 
 class Header extends Component {
+    constructor(props){
+        super();
+        this.state={
+            products:[],
+        }
+    }
 
     handleLogout = () => {
-        console.log('---');
-        console.log(this.props.location);
-        this.props.action.logout();
+        this.props.logOut();
         window.location.reload();
+    };
+
+    search=(key)=>{
+        debugger
+        this.props.searchProduct(key).then((res)=>{
+           if(res){
+               console.log('h',res);
+               this.props.history.push('/searchproduct');
+           }
+        });
     };
 
     render() {
@@ -59,7 +75,7 @@ class Header extends Component {
                         <Col span={10} style={{paddingLeft: 10, paddingRight: 10}}>
                             <Search
                                 placeholder="Search for products,brands and more"
-                                onSearch={value => console.log(value)}
+                                onSearch={(value) => this.search(value)}
                             />
                         </Col>
                         <Col span={2}/>
@@ -119,12 +135,16 @@ class Header extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        action: {
-            logout: bindActionCreators(logout.logOut, dispatch),
-        }
+const mapStateToProps = state=> {
+    return{
+        products:state.product.product,
     }
-};
+}
 
-export default connect(null, mapDispatchToProps)(Radium(Header));
+const mapDispatchToProps = dispatch => {
+    const {logOut} = logout;
+    const {fetchProduct,searchProduct} = product;
+    return bindActionCreators({fetchProduct, logOut,searchProduct   }, dispatch);
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Radium(Header)));
